@@ -23,7 +23,7 @@ const Navbar = () => {
             <a>Messages</a>
         </div>
         <div className={s.item}>
-            <a>Newssss</a>
+            <a>News</a>
         </div>
         <div className={s.item}>
             <a>Music</a>
