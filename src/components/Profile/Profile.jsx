@@ -6,7 +6,10 @@ const Profile = () => {
   return (
     <div className={s.content}>
       <div>
-        <img src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg" alt = "nature"/>
+        <img
+          src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg"
+          alt="nature"
+        />
       </div>
       <div>ava + description</div>
       <Myposts />

@@ -4,12 +4,12 @@ import s from "./Myposts.module.css";
 import NewPost from "./Newpost/NewPost";
 
 const Myposts = () => {
-  return ( 
+  return (
     <div className={s.posts}>
       My posts
-      <NewPost message =' hi'/>
-      <Post message =' hi'/>
-      <Post message = ' hyi'/>
+      <NewPost message=" hi" />
+      <Post message=" hi" />
+      <Post message=" hyi" />
     </div>
   );
 };
