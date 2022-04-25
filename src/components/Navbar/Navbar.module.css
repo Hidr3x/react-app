@@ -3,10 +3,12 @@
   background-color: burlywood;
 }
 
-.item {
-  color: white;
+.item a{
+  color: rgb(55, 52, 52);
+  text-decoration: none;
 }
 
-.item.active {
-  color: gold;
+.item .active {
+  color: rgb(245, 213, 8);
 }
+
