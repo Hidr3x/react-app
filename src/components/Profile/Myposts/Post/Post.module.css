@@ -1,3 +1,16 @@
 .item {
-  color: rgb(160, 224, 70);
+  color: rgb(52, 34, 34);
+  width: 500px;
+  background: rgb(199, 195, 187);
+  margin: 8px 0;
+  border-radius: 10px;
+}
+
+.item img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.username{
+  font-size: 25px;
 }

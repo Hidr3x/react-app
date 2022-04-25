@@ -8,11 +8,11 @@ const Profile = () => {
       <div>
         <img
           src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg"
-          alt="nature"
-        />
+          alt="nature">
+          </img>
       </div>
-      <div>ava + description</div>
-      <Myposts />
+      <div className={s.avatar}>ava + description</div>
+      <Myposts name="My posts" />
     </div>
   );
 };
