@@ -29,14 +29,14 @@ let state = {
   },
   messagesPage: {
     dialogs: [
-      { name: "Pavlo", ID: 1 },
-      { name: "Vlad", ID: 2 },
-      { name: "Petya", ID: 3 },
+      { name: "Pavlo", ID: 1 , image: "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg"},
+      { name: "Vlad", ID: 2 , image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVegZtYOISkSmBhRLnjh1xT3orqWNgwSQogA&usqp=CAU"},
+      { name: "Petya", ID: 3 , image:  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU" },
     ],
     messages: [
-      { ID: 1, message: "Hi" },
-      { ID: 2, message: "How are you?" },
-      { ID: 3, message: "How old are you?" },
+      { ID: 1, message: "Hi", count: 3},
+      { ID: 2, message: "How are you?", count: 2 },
+      { ID: 3, message: "How old are you?", count: 10 },
     ],
   },
 };

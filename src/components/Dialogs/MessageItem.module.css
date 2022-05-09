@@ -1,0 +1,6 @@
+.message div {
+    display: inline-block;
+    background: grey;
+    border-radius: 50%;
+   margin-right: 5px;
+}

@@ -7,17 +7,14 @@
   padding: 10px;
 }
 
-.dialogItem a {
-  text-decoration: none;
-}
+
 
 .messages {
   padding: 10px;
 }
 
-.dialogItem .active {
-  color: rgba(0, 0, 0, 0.856);
-}
-
-.message {
+.dialogsItems img{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
