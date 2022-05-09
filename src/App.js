@@ -31,10 +31,9 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar />
+        <Navbar state ={props.state}/>
         <div className="app-wrapper-content">
           <Routes>
-            {/* {path} */}
             <Route path="/" element={<Profile state ={props.state.profilePage}/>} />
             <Route path="/dialogs" element={<Dialogs  state = {props.state.messagesPage} messages = {props.state.messagesPage}/>} />
             <Route path="/profile" element={<Profile state ={props.state.profilePage}/>} />

@@ -1,0 +1,11 @@
+.sidebarItem img {
+  width: 30px;
+  border-radius: 50%;
+  display: block;
+  height: 30px;
+}
+
+.sidebarItem {
+    display: inline-block;
+    margin: 0 10px;
+}
