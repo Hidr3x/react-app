@@ -8,22 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import DialogCurrent from "./components/Dialogs/DialogCurrent";
 
-// let paths = [
-//   { patth: "/", eleement: Profile },
-//   { patth: "/dialogs", eleement: Dialogs, objects: postsData, props: props.postData  },
-//   { patth: "/profile", eleement: Profile, objects: postsData  },
-//   { patth: "/news" , eleement: News, objects: postsData },
-//   { patth: "/music", eleement: Music, objects: postsData  },
-//   { patth: "/settings" , eleement: Settings, objects: postsData },
-//   { patth: "/dialog/1" , eleement: Dialogs, objects: postsData },
-//   { patth: "/dialog/2" , eleement: Dialogs, objects: postsData },
-//   { patth: "/dialog/3", eleement: Dialogs , objects: postsData },
-// ];
-
-// let path = paths.map(item => (
-//   <Route path={item.patth} element= {< item.eleement  />} />
-// ));
 
 const App = (props) => {
 
@@ -40,9 +26,9 @@ const App = (props) => {
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/dialog/1" element={<Dialogs state = {props.state.messagesPage} messages = {props.state.messagesPage}/>} />
-            <Route path="/dialog/2" element={<Dialogs state = {props.state.messagesPage} messages = {props.state.messagesPage}/>} />
-            <Route path="/dialog/3" element={<Dialogs state = {props.state.messagesPage} messages = {props.state.messagesPage}/>} />
+            <Route path="/dialog/1" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[0]}/>} />
+            <Route path="/dialog/2" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[1]}/>} />
+            <Route path="/dialog/3" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[2]}/>} />
           </Routes>
         </div>
       </div>
