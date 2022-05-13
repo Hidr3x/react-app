@@ -76,4 +76,18 @@ let state = {
   ],
 };
 
+export let addPost = (postMessage) => {
+  let newPost = {
+    ID:5,
+    message: postMessage,
+    likesCount: 0,
+    image:
+          "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
+        username: "Voloday",
+  }
+  state.profilePage.postsData.push(newPost)
+
+}
+
+
 export default state;
