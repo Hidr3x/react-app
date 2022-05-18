@@ -1,3 +1,6 @@
+import { rerender } from "../render";
+
+
 let state = {
   profilePage: {
     postsData: [
@@ -86,7 +89,7 @@ export let addPost = (postMessage) => {
         username: "Voloday",
   }
   state.profilePage.postsData.push(newPost)
-
+  rerender(state)
 }
 
 

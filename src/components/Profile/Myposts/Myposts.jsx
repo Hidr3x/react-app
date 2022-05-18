@@ -6,9 +6,10 @@ import s from "./Myposts.module.css";
 const Myposts = (props) => {
   const postItem = props.postsData.map (post => < Post message={post.message} image={post.image} likes={post.likesCount} username={post.username}/>)
   let newPostElement = React.createRef()
-  let addPost = ()=>{
+  let addPost = () => {
      let text = newPostElement.current.value;
      props.addPost(text)
+     newPostElement.current.value = ''
   }
   
   return (
@@ -17,7 +18,7 @@ const Myposts = (props) => {
       <form>
         <textarea ref={newPostElement} placeholder="введите текст"></textarea>
         <div>
-          <button onClick={addPost}>send</button>
+          <button type='button' onClick={addPost}>send</button>
         </div>
       </form>
       {postItem}
