@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { rerender } from "./render";
-import state from "./redux/state";
+import state, { describe } from "./redux/state";
+import "./index.css";
+import { addPost, updateNewPostText} from "./redux/state";
 
-
-rerender(state)
+let rerender = (state) => {
+    ReactDOM.render(
+      <App state={state} addPost={addPost} updateNewPostText = {updateNewPostText}/>,
+      document.getElementById("root")
+    );
+  };
+  rerender(state) 
+  describe(rerender)

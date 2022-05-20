@@ -1,4 +1,5 @@
-import { rerender } from "../render";
+let rerender = () => {
+}
 
 
 let state = {
@@ -29,6 +30,7 @@ let state = {
         username: "RAmbo",
       },
     ],
+    newPostText: ''
   },
   messagesPage: {
     dialogs: [
@@ -79,18 +81,28 @@ let state = {
   ],
 };
 
-export let addPost = (postMessage) => {
+
+export const addPost = () => {
   let newPost = {
     ID:5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0,
     image:
           "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
         username: "Voloday",
   }
   state.profilePage.postsData.push(newPost)
+  state.profilePage.newPostText =''
   rerender(state)
 }
 
+export const updateNewPostText = (newText) =>{
+  state.profilePage.newPostText = newText
+  rerender(state)
+}
+
+export const describe = (observer) =>{
+  rerender=observer
+}
 
 export default state;

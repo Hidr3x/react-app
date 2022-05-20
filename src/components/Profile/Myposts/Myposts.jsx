@@ -7,16 +7,20 @@ const Myposts = (props) => {
   const postItem = props.postsData.map (post => < Post message={post.message} image={post.image} likes={post.likesCount} username={post.username}/>)
   let newPostElement = React.createRef()
   let addPost = () => {
-     let text = newPostElement.current.value;
-     props.addPost(text)
-     newPostElement.current.value = ''
+     props.addPost()
+     
   }
   
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  }
+
   return (
     <div className={s.posts}>
       <h3>{props.name} </h3>
       <form>
-        <textarea ref={newPostElement} placeholder="введите текст"></textarea>
+        <textarea onChange = {onPostChange} ref={newPostElement} placeholder="введите текст" value = {props.newPostText}/>
         <div>
           <button type='button' onClick={addPost}>send</button>
         </div>
