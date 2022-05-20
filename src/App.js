@@ -26,9 +26,9 @@ const App = (props) => {
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/dialog/1" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[0]}/>} />
-            <Route path="/dialog/2" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[1]}/>} />
-            <Route path="/dialog/3" element={<DialogCurrent state = {props.state.messagesPage} messages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[2]}/>} />
+            <Route path="/dialog/1" element={<DialogCurrent state = {props.state.messagesPage} addMessage={props.addMessage} updateNewPostText = {props.updateNewPostText} currentmessages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[0]}/>} />
+            <Route path="/dialog/2" element={<DialogCurrent state = {props.state.messagesPage} addMessage={props.addMessage} updateNewPostText = {props.updateNewPostText} currentmessages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[1]}/>} />
+            <Route path="/dialog/3" element={<DialogCurrent state = {props.state.messagesPage} addMessage={props.addMessage} updateNewPostText = {props.updateNewPostText} currentmessages = {props.state.messagesPage} number={props.state.messagesPage.dialogs[2]}/>} />
           </Routes>
         </div>
       </div>

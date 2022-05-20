@@ -4,18 +4,21 @@ import s from "./DialogCurrent.module.css";
 import MessageItem from "./MessageItem";
 import { NavLink } from "react-router-dom";
 
-let newPostElement = React.createRef();
-let addPost = () => {
-  let text = newPostElement.current.value;
-  alert(text);
-};
-
 const DialogCurrent = (props) => {
+  let newPostElement = React.createRef();
+  let addMessage = () => {
+    props.addMessage();
+    newPostElement.current.value ='';
+  };
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  };
   const dialogItem = props.state.dialogs.map((dialog) => (
     <DialogItem userName={dialog.name} ID={dialog.ID} avatar={dialog.image} />
   ));
-  const messageItem = props.state.messages.map((message) => (
-    <MessageItem message={message.message} ID={message.ID} />
+  const messageItem = props.state.currentmessages.map((message) => (
+    <MessageItem message={message.message} />
   ));
   return (
     <div className={s.dialogs}>
@@ -31,11 +34,18 @@ const DialogCurrent = (props) => {
         </div>
       </div>
       <div className={s.messages}>
-        {messageItem[props.number.ID - 1]}
+        {messageItem} 
         <form>
-          <textarea ref={newPostElement} placeholder="введите текст"></textarea>
+          <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            placeholder="введите текст"
+            value={props.newPostText}
+          />
           <div>
-            <button onClick={addPost}>send</button>
+            <button type="button" onClick={addMessage}>
+              send
+            </button>
           </div>
         </form>
       </div>

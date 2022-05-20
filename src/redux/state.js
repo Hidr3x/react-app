@@ -1,6 +1,4 @@
-let rerender = () => {
-}
-
+let rerender = () => {};
 
 let state = {
   profilePage: {
@@ -30,7 +28,7 @@ let state = {
         username: "RAmbo",
       },
     ],
-    newPostText: ''
+    newPostText: "",
   },
   messagesPage: {
     dialogs: [
@@ -58,6 +56,11 @@ let state = {
       { ID: 2, message: "How are you?", count: 2 },
       { ID: 3, message: "How old are you?", count: 10 },
     ],
+    currentmessages: [
+      { message: "Hi" },
+      { message: "How are you?" },
+      { message: "How old are you?" },
+    ],
   },
   sideBar: [
     {
@@ -81,28 +84,35 @@ let state = {
   ],
 };
 
-
-export const addPost = () => {
-  let newPost = {
-    ID:5,
-    message: state.profilePage.newPostText,
-    likesCount: 0,
-    image:
-          "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
-        username: "Voloday",
-  }
-  state.profilePage.postsData.push(newPost)
-  state.profilePage.newPostText =''
-  rerender(state)
-}
-
-export const updateNewPostText = (newText) =>{
-  state.profilePage.newPostText = newText
-  rerender(state)
-}
-
-export const describe = (observer) =>{
-  rerender=observer
-}
-
+export let store = {
+  addPost() {
+    let newPost = {
+      ID: 5,
+      message: state.profilePage.newPostText,
+      likesCount: 0,
+      image:
+        "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
+      username: "Voloday",
+    };
+    state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = "";
+    rerender(state);
+  },
+  addMessage() {
+    let newMessage = {
+      message: state.profilePage.newPostText,
+    };
+    state.messagesPage.currentmessages.push(newMessage);
+    rerender(state);
+  },
+  updateNewPostText(newText) {
+    state.profilePage.newPostText = newText;
+    rerender(state);
+  },
+  describe(observer) {
+    rerender = observer;
+  },
+};
 export default state;
+
+
