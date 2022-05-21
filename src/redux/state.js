@@ -1,37 +1,67 @@
-let rerender = () => {};
-
-let state = {
-  profilePage: {
-    postsData: [
-      {
-        ID: 1,
-        message: "Hello, guys I'm begginer",
-        likesCount: 30,
-        image:
-          "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
-        username: "ak47",
-      },
-      {
-        ID: 2,
-        message: "The dog in the aven",
-        likesCount: 15,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVegZtYOISkSmBhRLnjh1xT3orqWNgwSQogA&usqp=CAU",
-        username: "SOVA",
-      },
-      {
-        ID: 3,
-        message: "Congratulation",
-        likesCount: 20,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU",
-        username: "RAmbo",
-      },
-    ],
-    newPostText: "",
-  },
-  messagesPage: {
-    dialogs: [
+let store = {
+  _state:{
+    profilePage: {
+      postsData: [
+        {
+          ID: 1,
+          message: "Hello, guys I'm begginer",
+          likesCount: 30,
+          image:
+            "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
+          username: "ak47",
+        },
+        {
+          ID: 2,
+          message: "The dog in the aven",
+          likesCount: 15,
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVegZtYOISkSmBhRLnjh1xT3orqWNgwSQogA&usqp=CAU",
+          username: "SOVA",
+        },
+        {
+          ID: 3,
+          message: "Congratulation",
+          likesCount: 20,
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU",
+          username: "RAmbo",
+        },
+      ],
+      newPostText: "",
+    },
+    messagesPage: {
+      dialogs: [
+        {
+          name: "Pavlo",
+          ID: 1,
+          image:
+            "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
+        },
+        {
+          name: "Vlad",
+          ID: 2,
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVegZtYOISkSmBhRLnjh1xT3orqWNgwSQogA&usqp=CAU",
+        },
+        {
+          name: "Petya",
+          ID: 3,
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU",
+        },
+      ],
+      messages: [
+        { ID: 1, message: "Hi", count: 3 },
+        { ID: 2, message: "How are you?", count: 2 },
+        { ID: 3, message: "How old are you?", count: 10 },
+      ],
+      currentmessages: [
+        { message: "Hi" },
+        { message: "How are you?" },
+        { message: "How old are you?" },
+      ],
+    },
+    sideBar: [
       {
         name: "Pavlo",
         ID: 1,
@@ -51,68 +81,44 @@ let state = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU",
       },
     ],
-    messages: [
-      { ID: 1, message: "Hi", count: 3 },
-      { ID: 2, message: "How are you?", count: 2 },
-      { ID: 3, message: "How old are you?", count: 10 },
-    ],
-    currentmessages: [
-      { message: "Hi" },
-      { message: "How are you?" },
-      { message: "How old are you?" },
-    ],
   },
-  sideBar: [
-    {
-      name: "Pavlo",
-      ID: 1,
-      image:
-        "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
-    },
-    {
-      name: "Vlad",
-      ID: 2,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVegZtYOISkSmBhRLnjh1xT3orqWNgwSQogA&usqp=CAU",
-    },
-    {
-      name: "Petya",
-      ID: 3,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyVzhDXXgX0XkjxUdJytSRX5K_jJc574akQ&usqp=CAU",
-    },
-  ],
-};
-
-export let store = {
+  getState(){
+    return this._state
+  },
+  _rerender (){},
   addPost() {
     let newPost = {
       ID: 5,
-      message: state.profilePage.newPostText,
+      message: this._state.profilePage.newPostText,
       likesCount: 0,
       image:
         "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
       username: "Voloday",
     };
-    state.profilePage.postsData.push(newPost);
-    state.profilePage.newPostText = "";
-    rerender(state);
+    this._state.profilePage.postsData.push(newPost);
+    this._state.profilePage.newPostText = "";
+    this._rerender(this._state);
   },
   addMessage() {
     let newMessage = {
-      message: state.profilePage.newPostText,
+      message: this._state.profilePage.newPostText,
     };
-    state.messagesPage.currentmessages.push(newMessage);
-    rerender(state);
+    this._state.messagesPage.currentmessages.push(newMessage);
+    this._rerender(this._state);
   },
   updateNewPostText(newText) {
-    state.profilePage.newPostText = newText;
-    rerender(state);
+    this._state.profilePage.newPostText = newText;
+    this._rerender(this._state);
   },
-  describe(observer) {
-    rerender = observer;
+  subscribe(observer) {
+    this._rerender = observer;
   },
+  
 };
-export default state;
+
+
+export default store;
+
+
 
 
