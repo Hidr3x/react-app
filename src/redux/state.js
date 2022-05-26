@@ -1,5 +1,9 @@
+let addPost = "ADD-POST";
+let addMessage = "ADD-MESSAGE";
+let updateNewPostText = "UPDATE-NEW-POST-TEXT";
+
 let store = {
-  _state:{
+  _state: {
     profilePage: {
       postsData: [
         {
@@ -82,43 +86,46 @@ let store = {
       },
     ],
   },
-  getState(){
-    return this._state
+  getState() {
+    return this._state;
   },
-  _rerender (){},
-  addPost() {
-    let newPost = {
-      ID: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-      image:
-        "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
-      username: "Voloday",
-    };
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._rerender(this._state);
+  _rerender() {},
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        ID: 5,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0,
+        image:
+          "https://art-nto.ru/800/600/https/pbs.twimg.com/media/DvNHaJHW0AA4Sib.jpg",
+        username: "Voloday",
+      };
+      this._state.profilePage.postsData.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._rerender(this._state);
+    } else if (action.type === "ADD-MESSAGE") {
+      let newMessage = {
+        message: this._state.profilePage.newPostText,
+      };
+      this._state.messagesPage.currentmessages.push(newMessage);
+      this._rerender(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.newText;
+      this._rerender(this._state);
+    }
   },
-  addMessage() {
-    let newMessage = {
-      message: this._state.profilePage.newPostText,
-    };
-    this._state.messagesPage.currentmessages.push(newMessage);
-    this._rerender(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._rerender(this._state);
-  },
+
   subscribe(observer) {
     this._rerender = observer;
   },
-  
 };
+export const addPostActionCreator = () => ({
+  type: addPost,
+});
 
+export const updateNewPostTextActionCreator = (text) => ({
+  type: updateNewPostText,
+  newText: text,
+});
 
 export default store;
-
-
-
-

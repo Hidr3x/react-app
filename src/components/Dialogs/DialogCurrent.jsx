@@ -3,16 +3,17 @@ import DialogItem from "./DialogItem";
 import s from "./DialogCurrent.module.css";
 import MessageItem from "./MessageItem";
 import { NavLink } from "react-router-dom";
+import { updateNewPostTextActionCreator } from "../../redux/state";
 
 const DialogCurrent = (props) => {
   let newPostElement = React.createRef();
   let addMessage = () => {
-    props.addMessage();
+    props.dispatch({type:"ADD-MESSAGE"});
     newPostElement.current.value ='';
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.dispatch(updateNewPostTextActionCreator(text));
   };
   const dialogItem = props.state.dialogs.map((dialog) => (
     <DialogItem userName={dialog.name} ID={dialog.ID} avatar={dialog.image} />
